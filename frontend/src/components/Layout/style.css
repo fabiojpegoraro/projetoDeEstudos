@@ -1,0 +1,17 @@
+.layout {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    flex-direction: column;
+    border-radius: 7px;
+    width: 50%;
+}
+
+.layoutHeader{
+    font-size: 18px;
+    font-weight: 500;
+    border-bottom: solid 4px;
+    border-color: #6959CD;
+    padding: 10px;
+    width: 98%;
+}
