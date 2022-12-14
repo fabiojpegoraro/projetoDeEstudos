@@ -1,0 +1,23 @@
+.table {
+    padding: 10px;
+    border-radius: 10px;
+    border-spacing: 0; 
+    width: 750px;
+    border-collapse: separate;
+    text-align: center;
+}
+
+.tableHead {
+    background-color: #6959CD;
+    color: white;
+}
+
+th, td {
+    font-weight: 600;
+    padding: 10px;
+    font-size: small;
+}
+
+.tableBody{
+    background-color: #E6E6FA;
+}

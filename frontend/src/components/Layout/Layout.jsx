@@ -1,15 +1,13 @@
 import React from 'react';
 import './style.css';
 
-const Layout = () => {
+const Layout = (props) => {
   return (
     <div className="layout">
       <header className="layoutHeader">
-        <span> Cadastro Simples </span>
+        <span className="layoutHeaderTitle"> Cadastro Simples </span>
       </header>
-      <main>
-        <h1>Conteúdo</h1>
-      </main>
+      <main>{props.children}</main>
     </div>
   );
 };
