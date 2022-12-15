@@ -1,23 +1,56 @@
+.newClientDivButton {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.newClientButton {
+  max-width: 100px;
+  margin-right: 10px;
+  border-radius: 7px;
+  border-color: yellowgreen;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+}
+
 .table {
-    padding: 10px;
-    border-radius: 10px;
-    border-spacing: 0; 
-    width: 750px;
-    border-collapse: separate;
-    text-align: center;
+  padding: 10px;
+  border-spacing: 0;
+  border-collapse: separate;
+  text-align: center;
+  width: 700px;
+  margin-bottom: 10px;
 }
 
 .tableHead {
-    background-color: #6959CD;
-    color: white;
+  background-color: #6959cd;
+  color: white;
 }
 
-th, td {
-    font-weight: 600;
-    padding: 10px;
-    font-size: small;
+th,
+td {
+  font-weight: 600;
+  padding: 10px;
+  font-size: small;
 }
 
-.tableBody{
-    background-color: #E6E6FA;
+.tableBody {
+  background-color: #e6e6fa;
+}
+
+.firtsCell {
+  border-radius: 10px 0px 0px 0px;
+}
+
+.secondCell {
+  border-radius: 0px 10px 0px 0px;
+}
+
+.thirdCell {
+  border-radius: 0px 0px 0px 10px;
+}
+
+.fourthCell {
+  border-radius: 0px 0px 10px 0px;
 }
