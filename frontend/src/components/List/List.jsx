@@ -1,6 +1,5 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Layout from '../Layout/Layout';
 import './style.css';
 
 const List = () => {
@@ -17,7 +16,7 @@ const List = () => {
   }, []);
 
   return (
-    <>
+    <Layout>
       <div className="newClientDivButton">
         <button className="newClientButton">Novo Cliente</button>
       </div>
@@ -50,7 +49,7 @@ const List = () => {
           })}
         </tbody>
       </table>
-    </>
+    </Layout>
   );
 };
 
