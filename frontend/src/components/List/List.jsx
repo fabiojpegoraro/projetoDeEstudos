@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Layout from '../Layout/Layout';
 import './style.css';
 
@@ -18,7 +19,9 @@ const List = () => {
   return (
     <Layout>
       <div className="newClientDivButton">
-        <button className="newClientButton">Novo Cliente</button>
+        <Link to="/form">
+          <button className="newClientButton">Novo Cliente</button>
+        </Link>
       </div>
       <table className="table">
         <thead className="tableHead">

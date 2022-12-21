@@ -1,0 +1,55 @@
+.listClientDivButton {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.listClientButton {
+  max-width: 120px;
+  margin-right: 10px;
+  border-radius: 7px;
+  border-color: yellowgreen;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  margin: 0px;
+}
+
+.divForm {
+  width: 700px;
+  background-color: #e6e6fa;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputForm {
+  width: 660px;
+  margin-top: 30px;
+  border-radius: 5px;
+  border: 0.5px solid #6959cd;
+  padding: 5px;
+}
+
+.buttonsForm {
+  width: 670px;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.buttonSave {
+  margin-left: 5px;
+}
+
+.buttonCancel {
+  margin-left: 5px;
+}
