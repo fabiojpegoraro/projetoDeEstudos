@@ -7,8 +7,18 @@
     },
     {
       "name": "José",
-      "idade": 37,
+      "idade": "30",
       "id": 2
+    },
+    {
+      "name": "Pegoraro",
+      "idade": "31",
+      "id": 3
+    },
+    {
+      "name": "Pegoraro",
+      "idade": "32",
+      "id": 4
     }
   ]
 }

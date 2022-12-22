@@ -17,7 +17,7 @@
 }
 
 .divForm {
-  width: 700px;
+  width: 680px;
   background-color: #e6e6fa;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -29,16 +29,23 @@
   align-items: center;
 }
 
+.componentForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
 .inputForm {
-  width: 660px;
-  margin-top: 30px;
+  width: 650px;
+  margin-top: 10px;
   border-radius: 5px;
   border: 0.5px solid #6959cd;
   padding: 5px;
 }
 
 .buttonsForm {
-  width: 670px;
+  width: 660px;
   display: flex;
   justify-content: flex-end;
   margin: 0px;
