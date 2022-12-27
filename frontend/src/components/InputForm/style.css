@@ -1,0 +1,14 @@
+.componentForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.inputForm {
+  width: 650px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 0.5px solid #6959cd;
+  padding: 5px;
+}

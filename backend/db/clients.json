@@ -6,19 +6,9 @@
       "idade": 36
     },
     {
-      "name": "José",
-      "idade": "30",
+      "name": "Fábio José Pegoraro",
+      "idade": "36",
       "id": 2
-    },
-    {
-      "name": "Pegoraro",
-      "idade": "31",
-      "id": 3
-    },
-    {
-      "name": "Pegoraro",
-      "idade": "32",
-      "id": 4
     }
   ]
 }
