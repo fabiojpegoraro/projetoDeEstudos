@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Layout from '../Layout/Layout';
 import './style.css';
 
 const List = () => {
   const [clients, setClients] = useState([]);
+  const navigate = useNavigate();
 
   const getClients = () => {
     fetch('http://localhost:3000/clients')
@@ -16,12 +17,22 @@ const List = () => {
     getClients();
   }, []);
 
+  const handleClick = (target) => {
+    navigate(`/${target}`);
+  };
+
+  const handleDelete = (id) => {
+    fetch(`http://localhost:3000/clients/${id}`, { method: 'DELETE' }).then(
+      () => getClients()
+    );
+  };
+
   return (
     <Layout>
       <div className="newClientDivButton">
-        <Link to="/form">
-          <button className="newClientButton">Novo Cliente</button>
-        </Link>
+        <button className="newClientButton" onClick={() => handleClick('form')}>
+          Novo Cliente
+        </button>
       </div>
       <table className="table">
         <thead className="tableHead">
@@ -44,8 +55,18 @@ const List = () => {
                 <td
                   className={clients.length - 1 === index ? 'fourthCell' : ''}
                 >
-                  <button>Edit</button>
-                  <button>Delete</button>
+                  <button
+                    onClick={() => handleClick(`form/${client.id}`)}
+                    className="actionButtons"
+                  >
+                    Editar
+                  </button>
+                  <button
+                    onClick={() => handleDelete(client.id)}
+                    className="actionButtons"
+                  >
+                    Excluir
+                  </button>
                 </td>
               </tr>
             );

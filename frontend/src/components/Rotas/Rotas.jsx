@@ -6,6 +6,7 @@ const Rotas = () => {
   return (
     <Routes>
       <Route index element={<List />} path="/" />
+      <Route element={<ClientForm />} path="/form/:id" />
       <Route element={<ClientForm />} path="/form" />
     </Routes>
   );

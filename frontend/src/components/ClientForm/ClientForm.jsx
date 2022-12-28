@@ -1,19 +1,42 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Layout from '../Layout/Layout';
 import InputForm from '../InputForm/InputForm';
 import './style.css';
+import { useEffect } from 'react';
 
 const ClientForm = () => {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
+  const navigate = useNavigate();
+  const params = useParams();
+  const { id } = params;
+
+  useEffect(() => {
+    if (id) {
+      fetch(`http://localhost:3000/clients/${id}`)
+        .then((response) => response.json())
+        .then((json) => {
+          const { name, idade } = json;
+          setName(name);
+          setAge(idade);
+        });
+    }
+  }, [id]);
 
   const saveClient = () => {
     if (name === '' || age === '') {
       return;
     }
-    fetch('http://localhost:3000/clients', {
-      method: 'POST',
+    const URL = id
+      ? `http://localhost:3000/clients/${id}`
+      : 'http://localhost:3000/clients/';
+    const method = id ? 'PUT' : 'POST';
+
+    console.log(URL, method);
+
+    fetch(URL, {
+      method,
       headers: {
         'Content-Type': 'application/json',
       },
@@ -23,8 +46,11 @@ const ClientForm = () => {
       }),
     })
       .then((response) => {
+        if (response.status === 200) {
+          window.alert('Cliente alterado com sucesso');
+        }
         if (response.status === 201) {
-          window.alert('Cliente incluído com sucesso!');
+          window.alert('Cliente cadastrado com sucesso');
         }
       })
       .catch((error) => {
@@ -32,12 +58,16 @@ const ClientForm = () => {
       });
   };
 
+  const handleClick = () => {
+    navigate('/');
+  };
+
   return (
     <Layout>
       <div className="listClientDivButton">
-        <Link to="/">
-          <button className="listClientButton">Lista de Clientes</button>
-        </Link>
+        <button className="listClientButton" onClick={handleClick}>
+          Lista de Clientes
+        </button>
       </div>
       <div className="divForm">
         <form className="form">
@@ -52,10 +82,12 @@ const ClientForm = () => {
             setAction={(e) => setAge(e.target.value)}
           />
           <div className="buttonsForm">
-            <button className="buttonSave" onClick={() => saveClient()}>
+            <button className="buttonSave" onClick={saveClient}>
               Salvar
             </button>
-            <button className="buttonCancel">Cancelar</button>
+            <button className="buttonCancel" onClick={handleClick}>
+              Cancelar
+            </button>
           </div>
         </form>
       </div>

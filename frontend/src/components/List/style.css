@@ -33,6 +33,7 @@ td {
   font-weight: 600;
   padding: 10px;
   font-size: small;
+  border-bottom: 0.5px solid #6959cd;
 }
 
 .tableBody {
@@ -53,4 +54,10 @@ td {
 
 .fourthCell {
   border-radius: 0px 0px 10px 0px;
+}
+
+.actionButtons {
+  margin: 0px 2px 0px 2px;
+  border-radius: 7px;
+  border: 1px solid;
 }
