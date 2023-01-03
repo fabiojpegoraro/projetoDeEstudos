@@ -1,4 +1,4 @@
-GET http://localhost:3000/clients/
+GET http://localhost:3000/clients
 Content-Type: application/json
 
 ###

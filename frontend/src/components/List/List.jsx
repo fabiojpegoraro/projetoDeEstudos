@@ -7,10 +7,9 @@ const List = () => {
   const [clients, setClients] = useState([]);
   const navigate = useNavigate();
 
-  const getClients = () => {
-    fetch('http://localhost:3000/clients')
-      .then((response) => response.json())
-      .then((json) => setClients(json));
+  const getClients = async () => {
+    const response = await fetch('http://localhost:3000/clients');
+    setClients(await response.json());
   };
 
   useEffect(() => {
@@ -30,11 +29,15 @@ const List = () => {
   return (
     <Layout>
       <div className="newClientDivButton">
-        <button className="newClientButton" onClick={() => handleClick('form')}>
+        <button
+          className="newClientButton"
+          onClick={() => handleClick('form')}
+          data-testid="newClientButton"
+        >
           Novo Cliente
         </button>
       </div>
-      <table className="table">
+      <table className="table" data-testid="clientsTableList">
         <thead className="tableHead">
           <tr>
             <th className="firtsCell">Código</th>
@@ -46,7 +49,7 @@ const List = () => {
         <tbody className="tableBody">
           {clients.map((client, index, clients) => {
             return (
-              <tr>
+              <tr key={client.id}>
                 <td className={clients.length - 1 === index ? 'thirdCell' : ''}>
                   {client.id}
                 </td>
