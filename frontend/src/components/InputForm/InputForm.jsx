@@ -1,6 +1,6 @@
 import './style.css';
 
-const InputForm = ({ labelText, inputValue, setAction }) => {
+const InputForm = ({ labelText, inputValue, dataTestId, setAction }) => {
   return (
     <div className="componentForm">
       <label>{labelText}</label>
@@ -8,6 +8,7 @@ const InputForm = ({ labelText, inputValue, setAction }) => {
         type="text"
         className="inputForm"
         value={inputValue}
+        data-testid={dataTestId}
         onChange={setAction}
       />
     </div>

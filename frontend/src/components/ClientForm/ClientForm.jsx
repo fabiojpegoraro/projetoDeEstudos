@@ -74,11 +74,13 @@ const ClientForm = () => {
           <InputForm
             labelText="Nome"
             inputValue={name}
+            dataTestId="inputName"
             setAction={(e) => setName(e.target.value)}
           />
           <InputForm
             labelText="Idade"
             inputValue={age}
+            dataTestId="inputIdade"
             setAction={(e) => setAge(e.target.value)}
           />
           <div className="buttonsForm">

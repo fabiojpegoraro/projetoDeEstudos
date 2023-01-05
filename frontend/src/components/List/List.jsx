@@ -61,12 +61,14 @@ const List = () => {
                   <button
                     onClick={() => handleClick(`form/${client.id}`)}
                     className="actionButtons"
+                    data-testid="editButton"
                   >
                     Editar
                   </button>
                   <button
                     onClick={() => handleDelete(client.id)}
                     className="actionButtons"
+                    data-testid="deleteButton"
                   >
                     Excluir
                   </button>
