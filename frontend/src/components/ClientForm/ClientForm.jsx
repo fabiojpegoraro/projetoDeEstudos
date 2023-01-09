@@ -65,7 +65,11 @@ const ClientForm = () => {
   return (
     <Layout>
       <div className="listClientDivButton">
-        <button className="listClientButton" onClick={handleClick}>
+        <button
+          data-testid="listClientButton"
+          className="listClientButton"
+          onClick={handleClick}
+        >
           Lista de Clientes
         </button>
       </div>
