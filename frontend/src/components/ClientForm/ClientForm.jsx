@@ -30,7 +30,7 @@ const ClientForm = () => {
     }
     const URL = id
       ? `http://localhost:3000/clients/${id}`
-      : 'http://localhost:3000/clients/';
+      : 'http://localhost:3000/clients';
     const method = id ? 'PUT' : 'POST';
 
     console.log(URL, method);
@@ -88,7 +88,11 @@ const ClientForm = () => {
             setAction={(e) => setAge(e.target.value)}
           />
           <div className="buttonsForm">
-            <button className="buttonSave" onClick={saveClient}>
+            <button
+              data-testid="buttonSave"
+              className="buttonSave"
+              onClick={saveClient}
+            >
               Salvar
             </button>
             <button className="buttonCancel" onClick={handleClick}>

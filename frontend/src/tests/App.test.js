@@ -8,6 +8,7 @@ import {
 import nock from 'nock';
 import { act } from 'react-dom/test-utils';
 import App from '../App';
+import ClientForm from '../components/ClientForm/ClientForm';
 import List from '../components/List/List';
 
 const setup = (testClients) => {
@@ -138,6 +139,22 @@ test('should call edit client function', async () => {
       'access-control-allow-origin': '*',
       'access-control-allow-credentials': 'true',
     })
+    .put('/clients/1')
+    .reply(200);
+
+  const inputName = screen.getByTestId('inputName');
+  fireEvent.change(inputName, { target: { value: 'Teste2' } });
+  const inputIdade = screen.getByTestId('inputIdade');
+  fireEvent.change(inputIdade, { target: { value: 10 } });
+
+  const saveButton = screen.getByTestId('buttonSave');
+  fireEvent.click(saveButton);
+
+  nock('http://localhost:3000')
+    .defaultReplyHeaders({
+      'access-control-allow-origin': '*',
+      'access-control-allow-credentials': 'true',
+    })
     .get('/clients')
     .reply(200, []);
 
@@ -191,4 +208,31 @@ test('should call delete client function', async () => {
     const client1 = screen.queryByText('Teste1');
     expect(client1).not.toBeInTheDocument();
   });
+});
+
+test('should render empty client form and shouldnt save', async () => {
+  setup();
+
+  await waitFor(() => {
+    expect(screen.getByTestId('newClientButton')).toBeInTheDocument();
+  });
+
+  await act(() => {
+    fireEvent.click(screen.getByTestId('newClientButton'));
+  });
+
+  const saveButton = screen.getByTestId('buttonSave');
+  fireEvent.click(saveButton);
+});
+
+test('should render empty client form and save', async () => {
+  setup();
+
+  const inputName = screen.getByTestId('inputName');
+  fireEvent.change(inputName, { target: { value: 'Teste2' } });
+  const inputIdade = screen.getByTestId('inputIdade');
+  fireEvent.change(inputIdade, { target: { value: 10 } });
+
+  const saveButton = screen.getByTestId('buttonSave');
+  fireEvent.click(saveButton);
 });
